@@ -130,7 +130,7 @@ public class BitbucketBuildStatusNotifications {
             state = "FAILED";
         } else if (Result.NOT_BUILT.equals(result)) {
             // Bitbucket Cloud and Server support different build states.
-            state = (bitbucket instanceof BitbucketCloudApiClient) ? "STOPPED" : "FAILED";
+            state = (bitbucket instanceof BitbucketCloudApiClient) ? "STOPPED" : "INPROGRESS";
             statusDescription = StringUtils.defaultIfBlank(buildDescription, "This commit was not built (probably the build was skipped)");
         } else if (result != null) { // ABORTED etc.
             statusDescription = StringUtils.defaultIfBlank(buildDescription, "Something is wrong with the build of this commit.");
